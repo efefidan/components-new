@@ -17,16 +17,21 @@ const HomePage = () => {
     <div className="container mx-auto p-4">
       <UserStats /> {/* Kullanıcı istatistiklerini gösteren kısım */}
 
-      {/* Inline style ile lisans kısmını sağa alıyoruz */}
-      <div style={{ display: "inline-block", width: "75%" }}> {/* Sol tarafta StatisticChart */}
-        <StatisticChart />
-      </div>
+      {/* Flexbox ile layout'u responsive yapıyoruz */}
+      <div className="flex flex-col lg:flex-row justify-between space-y-4 lg:space-y-0 lg:space-x-4">
+        {/* Sol tarafta StatisticChart */}
+        <div className="w-full lg:w-3/4">
+          <StatisticChart />
+        </div>
 
-      <div style={{ display: "inline-block", width: "25%", float: "right" }}> {/* Sağ tarafta LicenseExpireList */}
-        <LicenseExpireList />
+        {/* Sağ tarafta LicenseExpireList */}
+        <div className="w-full lg:w-1/4">
+          <LicenseExpireList />
+        </div>
       </div>
     </div>
   );
+
 };
 
 export default HomePage;
